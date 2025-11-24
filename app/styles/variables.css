@@ -1,0 +1,222 @@
+/* ===============================
+     Theme Colors
+  =============================== */
+:root {
+  --color--brand-main: #797dc7;
+  --color--brand-secondary: #f1f0ee;
+  --color--dark: #0e0e0c;
+  --color--light: #fafafa;
+  --color--transparent: transparent;
+
+  /** Base theme **/
+
+  --_theme---border: var(--color--dark);
+  --_theme---background: var(--color--light);
+  --_theme---text: var(--color--dark);
+
+  /** Buttons **/
+  --_theme---button-primary--background: var(--color--dark);
+  --_theme---button-primary--border: var(--color--dark);
+  --_theme---button-primary--text: var(--color--light);
+  --_theme---button-primary--background-hover: var(--color--brand-main);
+  --_theme---button-primary--border-hover: var(--color--brand-main);
+  --_theme---button-primary--text-hover: var(--color--dark);
+
+  /* ===============================
+     Screen, Containers & Layout
+  =============================== */
+
+  --site--max-width: min(var(--site--width), 100vw);
+  --site--width: 90rem;
+  --site--margin: clamp(1.5rem, 0.928rem + 2.86vw, 3.5rem);
+  --site--gutter: 1.25rem;
+  --site--column-count: 12;
+  --site--gutter-total: calc(
+    var(--site--gutter) * (var(--site--column-count) - 1)
+  );
+
+  --container--main: calc(var(--site--max-width) - var(--site--margin) * 2);
+
+  /* ===============================
+     Typography
+  =============================== */
+
+  /** Fonts **/
+  --_typography---font-family--primary: var(--font--pp-neue-montreal);
+  --_typography---font-family--secondary: var(--font--fragment-mono);
+
+  /** Font Weights **/
+  --_typography---font-weight--primary-regular: 450;
+  --_typography---font-weight--primary-medium: 500;
+  --_typography---font-weight--primary-bold: 700;
+  --_typography---font-weight--secondary-regular: 400;
+
+  /** Line Heights **/
+
+  --_typography---line-height--1: 1;
+
+  /** Letter Spacing **/
+
+  --_typography---letter-spacing--neg-0-03em: -0.03em;
+  --_typography---letter-spacing--0em: 0em;
+  --_typography---letter-spacing--0-05em: 0.05em;
+
+  /** Font Sizes **/
+
+  --_typography---font-size--text-main: clamp(
+    1rem,
+    1.192rem + -0.21vw,
+    1.15rem
+  );
+
+  --_typography---font-size--display: clamp(2.5rem, 1.928rem + 2.86vw, 4.5rem);
+  --_typography---font-size--h1: clamp(3.18rem, 2.606rem + 2.87vw, 5.19rem);
+  --_typography---font-size--h2: clamp(2.52rem, 2.174rem + 1.73vw, 3.73rem);
+  --_typography---font-size--h3: clamp(2rem, 1.802rem + 0.99vw, 2.69rem);
+  --_typography---font-size--h4: clamp(1.59rem, 1.492rem + 0.49vw, 1.93rem);
+  --_typography---font-size--h5: clamp(1.26rem, 1.222rem + 0.19vw, 1.39rem);
+  --_typography---font-size--h6: clamp(1rem, 1rem + 0vw, 1rem);
+
+  /** Font Sizes line height **/
+
+  --_typography---line-height--text-main: var(--_typography---line-height--1);
+  --_typography---line-height--display: var(--_typography---line-height--1);
+  --_typography---line-height--h1: var(--_typography---line-height--1);
+  --_typography---line-height--h2: var(--_typography---line-height--1);
+  --_typography---line-height--h3: var(--_typography---line-height--1-1);
+  --_typography---line-height--h4: var(--_typography---line-height--1-1);
+  --_typography---line-height--h5: var(--_typography---line-height--1-1);
+  --_typography---line-height--h6: var(--_typography---line-height--1-1);
+
+  /** Text Trims **/
+  /* (Trim excessive whitespace from font) */
+  /* https://line-height-trim.webflow.io/ */
+  --_typography---font--primary-trim-top: 0.36em;
+  --_typography---font--primary-trim-bottom: 0.36em;
+  --_typography---font--secondary-trim-top: 0.35em;
+  --_typography---font--secondary-trim-bottom: 0.35em;
+
+  /* ===============================
+     Spacing Scale
+  =============================== */
+  /** Fluid sizes **/
+
+  --size--0rem: 0rem;
+  --size--0-125rem: 0.125rem;
+  --size--0-25rem: 0.25rem;
+  --size--0-375rem: 0.375rem;
+  --size--0-5rem: 0.5rem;
+  --size--0-75rem: 0.75rem;
+  --size--1rem: 1rem;
+  --size--1-25rem: 1.25rem;
+  --size--1-5rem: 1.5rem;
+  --size--2rem: clamp(1.75rem, 1.678rem + 0.36vw, 2rem);
+  --size--2-5rem: clamp(2rem, 1.858rem + 0.71vw, 2.5rem);
+  --size--3rem: clamp(2.25rem, 2.036rem + 1.07vw, 3rem);
+  --size--3-5rem: clamp(2.375rem, 2.053rem + 1.61vw, 3.5rem);
+  --size--4rem: clamp(2.5rem, 2.072rem + 2.14vw, 4rem);
+  --size--4-5rem: clamp(2.75rem, 2.25rem + 2.5vw, 4.5rem);
+  --size--5rem: clamp(3rem, 2.428rem + 2.86vw, 5rem);
+  --size--5-5rem: clamp(3.25rem, 2.608rem + 3.21vw, 5.5rem);
+  --size--6rem: clamp(3.5rem, 2.786rem + 3.57vw, 6rem);
+  --size--6-5rem: clamp(3.75rem, 2.964rem + 3.93vw, 6.5rem);
+  --size--7rem: clamp(4rem, 3.142rem + 4.29vw, 7rem);
+  --size--7-5rem: clamp(4.25rem, 3.322rem + 4.64vw, 7.5rem);
+  --size--8rem: clamp(4.5rem, 3.5rem + 5vw, 8rem);
+  --size--8-5rem: clamp(4.75rem, 3.678rem + 5.36vw, 8.5rem);
+  --size--9rem: clamp(5rem, 3.858rem + 5.71vw, 9rem);
+  --size--9-5rem: clamp(5.25rem, 4.036rem + 6.07vw, 9.5rem);
+  --size--10rem: clamp(5.5rem, 4.214rem + 6.43vw, 10rem);
+  --size--11rem: clamp(5.75rem, 4.25rem + 7.5vw, 11rem);
+  --size--12rem: clamp(6rem, 4.286rem + 8.57vw, 12rem);
+  --size--13rem: clamp(6.5rem, 4.642rem + 9.29vw, 13rem);
+  --size--14rem: clamp(7rem, 5rem + 10vw, 14rem);
+  --size--15rem: clamp(7.5rem, 5.358rem + 10.71vw, 15rem);
+  --size--16rem: clamp(8rem, 5.714rem + 11.43vw, 16rem);
+
+  /** Section Spacing **/
+
+  --_spacing---space--8: clamp(2.64rem, 2.228rem + 2.06vw, 4.08rem);
+  --_spacing---space--7: clamp(1.88rem, 1.634rem + 1.23vw, 2.74rem);
+  --_spacing---space--6: clamp(1.34rem, 1.198rem + 0.71vw, 1.84rem);
+  --_spacing---space--5: clamp(0.96rem, 0.882rem + 0.39vw, 1.23rem);
+  --_spacing---space--4: clamp(0.69rem, 0.65rem + 0.2vw, 0.83rem);
+  --_spacing---space--3: clamp(0.49rem, 0.47rem + 0.1vw, 0.56rem);
+  --_spacing---space--2: clamp(0.35rem, 0.344rem + 0.03vw, 0.37rem);
+  --_spacing---space--1: clamp(0.25rem, 0.25rem + 0vw, 0.25rem);
+  --_spacing---section-space--none: 0rem;
+  --_spacing---section-space--small: clamp(3.69rem, 3.01rem + 3.4vw, 6.07rem);
+  --_spacing---section-space--main: clamp(5.17rem, 4.062rem + 5.54vw, 9.05rem);
+  --_spacing---section-space--large: clamp(
+    7.23rem,
+    5.444rem + 8.93vw,
+    13.48rem
+  );
+  --_spacing---section-space--page-top: 14rem;
+
+  /* ===============================
+    Column Widths
+  =============================== */
+
+  --column-width--1: calc(
+    (var(--container--main) - var(--site--gutter-total)) /
+      var(--site--column-count)
+  );
+  --column-width--2: calc(
+    var(--column-width-plus-gutter) * 2 - var(--site--gutter)
+  );
+  --column-width--3: calc(
+    var(--column-width-plus-gutter) * 3 - var(--site--gutter)
+  );
+  --column-width--4: calc(
+    var(--column-width-plus-gutter) * 4 - var(--site--gutter)
+  );
+  --column-width--5: calc(
+    var(--column-width-plus-gutter) * 5 - var(--site--gutter)
+  );
+  --column-width--6: calc(
+    var(--column-width-plus-gutter) * 6 - var(--site--gutter)
+  );
+  --column-width--7: calc(
+    var(--column-width-plus-gutter) * 7 - var(--site--gutter)
+  );
+  --column-width--8: calc(
+    var(--column-width-plus-gutter) * 8 - var(--site--gutter)
+  );
+  --column-width--9: calc(
+    var(--column-width-plus-gutter) * 9 - var(--site--gutter)
+  );
+  --column-width--10: calc(
+    var(--column-width-plus-gutter) * 10 - var(--site--gutter)
+  );
+  --column-width--11: calc(
+    var(--column-width-plus-gutter) * 11 - var(--site--gutter)
+  );
+  --column-width--12: calc(
+    var(--column-width-plus-gutter) * 12 - var(--site--gutter)
+  );
+  --column-width-plus-gutter: calc(
+    var(--column-width--1) + var(--site--gutter)
+  );
+  --column-margin--1: calc(var(--column-width-plus-gutter) * 1);
+  --column-margin--2: calc(var(--column-width-plus-gutter) * 2);
+  --column-margin--3: calc(var(--column-width-plus-gutter) * 3);
+  --column-margin--4: calc(var(--column-width-plus-gutter) * 4);
+  --column-margin--5: calc(var(--column-width-plus-gutter) * 5);
+  --column-margin--6: calc(var(--column-width-plus-gutter) * 6);
+  --column-margin--7: calc(var(--column-width-plus-gutter) * 7);
+  --column-margin--8: calc(var(--column-width-plus-gutter) * 8);
+  --column-margin--9: calc(var(--column-width-plus-gutter) * 9);
+  --column-margin--10: calc(var(--column-width-plus-gutter) * 10);
+  --column-margin--11: calc(var(--column-width-plus-gutter) * 11);
+  --column-margin--12: calc(var(--column-width-plus-gutter) * 12);
+
+  /* ===============================
+     Miscellaneous
+  =============================== */
+
+  --radius--main: 0.625rem;
+  --radius--round: 100vw;
+
+  --border-width--main: 0.0625rem;
+}
