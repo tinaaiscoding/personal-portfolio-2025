@@ -59,6 +59,7 @@
 
   --_typography---letter-spacing--neg-0-03em: -0.03em;
   --_typography---letter-spacing--0em: 0em;
+  --_typography---letter-spacing--0-03em: 0.03em;
   --_typography---letter-spacing--0-05em: 0.05em;
 
   /** Font Sizes **/
@@ -68,6 +69,7 @@
     1.192rem + -0.21vw,
     1.15rem
   );
+  --_typography---font-size--text-large: clamp(1.14rem, 1.106rem + 0.17vw, 1.26rem);
 
   --_typography---font-size--display: clamp(2.5rem, 1.928rem + 2.86vw, 4.5rem);
   --_typography---font-size--h1: clamp(3.18rem, 2.606rem + 2.87vw, 5.19rem);
@@ -76,17 +78,6 @@
   --_typography---font-size--h4: clamp(1.59rem, 1.492rem + 0.49vw, 1.93rem);
   --_typography---font-size--h5: clamp(1.26rem, 1.222rem + 0.19vw, 1.39rem);
   --_typography---font-size--h6: clamp(1rem, 1rem + 0vw, 1rem);
-
-  /** Font Sizes line height **/
-
-  --_typography---line-height--text-main: var(--_typography---line-height--1);
-  --_typography---line-height--display: var(--_typography---line-height--1);
-  --_typography---line-height--h1: var(--_typography---line-height--1);
-  --_typography---line-height--h2: var(--_typography---line-height--1);
-  --_typography---line-height--h3: var(--_typography---line-height--1-1);
-  --_typography---line-height--h4: var(--_typography---line-height--1-1);
-  --_typography---line-height--h5: var(--_typography---line-height--1-1);
-  --_typography---line-height--h6: var(--_typography---line-height--1-1);
 
   /** Text Trims **/
   /* (Trim excessive whitespace from font) */

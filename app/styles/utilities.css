@@ -16,6 +16,18 @@
 
     background-color: var(--_theme---background);
     color: var(--_theme---text);
+
+    button {
+      background-color: var(--_theme---button-primary--background);
+      border: var(--border-width--main) solid var(--_theme---button-primary--border);
+      color: var(--_theme---button-primary--text);
+    }
+
+    button:hover {
+      background-color: var(--_theme---button-primary--background-hover);
+      border: var(--border-width--main) solid var(--_theme---button-primary--border-hover);
+      color: var(--_theme---button-primary--text-hover);
+    }
   }
 
   .u-theme-dark {
@@ -32,6 +44,18 @@
 
     background-color: var(--_theme---background);
     color: var(--_theme---text);
+
+    button {
+      background-color: var(--_theme---button-primary--background);
+      border: 1px solid var(--_theme---button-primary--border);
+      color: var(--_theme---button-primary--text);
+    }
+
+    button:hover {
+      background-color: var(--_theme---button-primary--background-hover);
+      border: 1px solid var(--_theme---button-primary--border-hover);
+      color: var(--_theme---button-primary--text-hover);
+    }
   }
 }
 /* ================================
@@ -62,7 +86,6 @@
     --_text-style--letter-spacing: var(--_typography---letter-spacing--0em);
     --_text-style--margin-top: var(--_spacing---space--7);
     --_text-style--margin-bottom: var(--_spacing---space--6);
-    --_text-style--text-transform: var(--_typography---text-transform--none);
     --_text-style--trim-top: var(--_typography---font--primary-trim-top);
     --_text-style--trim-bottom: var(--_typography---font--primary-trim-bottom);
 
@@ -71,7 +94,6 @@
     line-height: var(--_text-style--line-height);
     font-weight: var(--_text-style--font-weight);
     letter-spacing: var(--_text-style--letter-spacing);
-    text-transform: var(--_text-style--text-transform);
     text-wrap: balance;
     display: flow-root;
   }
@@ -86,7 +108,6 @@
     --_text-style--letter-spacing: var(--_typography---letter-spacing--0em);
     --_text-style--margin-top: var(--_spacing---space--7);
     --_text-style--margin-bottom: var(--_spacing---space--6);
-    --_text-style--text-transform: var(--_typography---text-transform--none);
     --_text-style--trim-top: var(--_typography---font--primary-trim-top);
     --_text-style--trim-bottom: var(--_typography---font--primary-trim-bottom);
 
@@ -95,7 +116,6 @@
     line-height: var(--_text-style--line-height);
     font-weight: var(--_text-style--font-weight);
     letter-spacing: var(--_text-style--letter-spacing);
-    text-transform: var(--_text-style--text-transform);
     text-wrap: balance;
     display: flow-root;
   }
@@ -110,7 +130,6 @@
     --_text-style--letter-spacing: var(--_typography---letter-spacing--0em);
     --_text-style--margin-top: var(--_spacing---space--7);
     --_text-style--margin-bottom: var(--_spacing---space--5);
-    --_text-style--text-transform: var(--_typography---text-transform--none);
     --_text-style--trim-top: var(--_typography---font--primary-trim-top);
     --_text-style--trim-bottom: var(--_typography---font--primary-trim-bottom);
 
@@ -119,7 +138,6 @@
     line-height: var(--_text-style--line-height);
     font-weight: var(--_text-style--font-weight);
     letter-spacing: var(--_text-style--letter-spacing);
-    text-transform: var(--_text-style--text-transform);
     text-wrap: balance;
     display: flow-root;
   }
@@ -134,7 +152,6 @@
     --_text-style--letter-spacing: var(--_typography---letter-spacing--0em);
     --_text-style--margin-top: var(--_spacing---space--7);
     --_text-style--margin-bottom: var(--_spacing---space--5);
-    --_text-style--text-transform: var(--_typography---text-transform--none);
     --_text-style--trim-top: var(--_typography---font--primary-trim-top);
     --_text-style--trim-bottom: var(--_typography---font--primary-trim-bottom);
 
@@ -143,7 +160,6 @@
     line-height: var(--_text-style--line-height);
     font-weight: var(--_text-style--font-weight);
     letter-spacing: var(--_text-style--letter-spacing);
-    text-transform: var(--_text-style--text-transform);
     text-wrap: balance;
     display: flow-root;
   }
@@ -158,7 +174,6 @@
     --_text-style--letter-spacing: var(--_typography---letter-spacing--0em);
     --_text-style--margin-top: var(--_spacing---space--7);
     --_text-style--margin-bottom: var(--_spacing---space--4);
-    --_text-style--text-transform: var(--_typography---text-transform--none);
     --_text-style--trim-top: var(--_typography---font--primary-trim-top);
     --_text-style--trim-bottom: var(--_typography---font--primary-trim-bottom);
 
@@ -167,7 +182,6 @@
     line-height: var(--_text-style--line-height);
     font-weight: var(--_text-style--font-weight);
     letter-spacing: var(--_text-style--letter-spacing);
-    text-transform: var(--_text-style--text-transform);
     text-wrap: balance;
     display: flow-root;
   }
@@ -179,10 +193,9 @@
     --_text-style--font-weight: var(
       --_typography---font-weight--secondary-regular
     );
-    --_text-style--letter-spacing: var(--_typography---letter-spacing--0-05em);
+    --_text-style--letter-spacing: var(--_typography---letter-spacing--0em);
     --_text-style--margin-top: var(--_spacing---space--7);
     --_text-style--margin-bottom: var(--_spacing---space--4);
-    --_text-style--text-transform: var(--_typography---text-transform--none);
     --_text-style--trim-top: var(--_typography---font--secondary-trim-top);
     --_text-style--trim-bottom: var(
       --_typography---font--secondary-trim-bottom
@@ -193,7 +206,6 @@
     line-height: var(--_text-style--line-height);
     font-weight: var(--_text-style--font-weight);
     letter-spacing: var(--_text-style--letter-spacing);
-    text-transform: var(--_text-style--text-transform);
     text-wrap: balance;
     display: flow-root;
   }
@@ -208,7 +220,6 @@
     --_text-style--letter-spacing: var(--_typography---letter-spacing--0-05em);
     --_text-style--margin-top: var(--_spacing---space--7);
     --_text-style--margin-bottom: var(--_spacing---space--4);
-    --_text-style--text-transform: var(--_typography---text-transform--none);
     --_text-style--trim-top: var(--_typography---font--secondary-trim-top);
     --_text-style--trim-bottom: var(
       --_typography---font--secondary-trim-bottom
@@ -219,7 +230,6 @@
     line-height: var(--_text-style--line-height);
     font-weight: var(--_text-style--font-weight);
     letter-spacing: var(--_text-style--letter-spacing);
-    text-transform: var(--_text-style--text-transform);
     text-wrap: balance;
     display: flow-root;
   }
@@ -231,10 +241,9 @@
     --_text-style--font-weight: var(
       --_typography---font-weight--primary-medium
     );
-    --_text-style--letter-spacing: var(--_typography---letter-spacing--0em);
+    --_text-style--letter-spacing: var(--_typography---letter-spacing--0-03em);
     --_text-style--margin-top: var(--_spacing---space--4);
     --_text-style--margin-bottom: var(--_spacing---space--4);
-    --_text-style--text-transform: var(--_typography---text-transform--none);
     --_text-style--trim-top: var(--_typography---font--primary-trim-top);
     --_text-style--trim-bottom: var(--_typography---font--primary-trim-bottom);
 
@@ -243,7 +252,27 @@
     line-height: var(--_text-style--line-height);
     font-weight: var(--_text-style--font-weight);
     letter-spacing: var(--_text-style--letter-spacing);
-    text-transform: var(--_text-style--text-transform);
+    text-wrap: pretty;
+    display: flow-root;
+  }
+  .u-text-style-large {
+    --_text-style--font-family: var(--_typography---font-family--primary);
+    --_text-style--font-size: var(--_typography---font-size--text-large);
+    --_text-style--line-height: var(--_typography---line-height--1);
+    --_text-style--font-weight: var(
+      --_typography---font-weight--primary-medium
+    );
+    --_text-style--letter-spacing: var(--_typography---letter-spacing--0-03em);
+    --_text-style--margin-top: var(--_spacing---space--4);
+    --_text-style--margin-bottom: var(--_spacing---space--4);
+    --_text-style--trim-top: var(--_typography---font--primary-trim-top);
+    --_text-style--trim-bottom: var(--_typography---font--primary-trim-bottom);
+
+    font-family: var(--_text-style--font-family);
+    font-size: var(--_text-style--font-size);
+    line-height: var(--_text-style--line-height);
+    font-weight: var(--_text-style--font-weight);
+    letter-spacing: var(--_text-style--letter-spacing);
     text-wrap: pretty;
     display: flow-root;
   }
