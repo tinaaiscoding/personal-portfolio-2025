@@ -51,12 +51,8 @@
   --_typography---font-weight--primary-bold: 700;
   --_typography---font-weight--secondary-regular: 400;
 
-  /** Line Heights **/
-
-  --_typography---line-height--1: 1;
-
   /** Letter Spacing **/
-
+  --_typography---letter-spacing--neg-0-05em: -0.05em;
   --_typography---letter-spacing--neg-0-03em: -0.03em;
   --_typography---letter-spacing--0em: 0em;
   --_typography---letter-spacing--0-03em: 0.03em;

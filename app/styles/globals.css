@@ -120,7 +120,6 @@
     color: var(--_theme---text);
     font-family: var(--_typography---font-family--primary);
     font-weight: var(--_typography---font-weight--primary-medium);
-    margin: var(--site--margin);
   }
 
   ul,
