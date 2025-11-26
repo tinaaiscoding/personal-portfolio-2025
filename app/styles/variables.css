@@ -5,7 +5,9 @@
   --color--brand-main: #797dc7;
   --color--brand-secondary: #f1f0ee;
   --color--dark: #0e0e0c;
+  --color--dark-faded: #0e0e0c60;
   --color--light: #fafafa;
+  --color--light-faded: #fafafa60;
   --color--transparent: transparent;
 
   /** Base theme **/

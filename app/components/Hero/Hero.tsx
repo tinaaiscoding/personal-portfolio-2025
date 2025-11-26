@@ -1,13 +1,16 @@
 import Footer from '../Footer';
 import Navbar from '../Navbar';
-import './Hero.css';
+import Projects from '../Projects';
+import './styles.css';
 
 export default function Hero() {
   return (
     <div className='flex flex-col justify-between h-screen'>
-      <div id='hero'>
+      <div id='hero' className='flex flex-col h-full justify-between'>
         <Navbar />
-        <main></main>
+        <main>
+          <Projects />
+        </main>
       </div>
       <Footer />
     </div>

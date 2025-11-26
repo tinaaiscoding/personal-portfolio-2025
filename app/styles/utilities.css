@@ -6,6 +6,7 @@
     --_theme---border: var(--color--dark);
     --_theme---background: var(--color--light);
     --_theme---text: var(--color--dark);
+    --_theme---text-faded: var(--color--dark-faded);
 
     --_theme---button-primary--background: var(--color--dark);
     --_theme---button-primary--border: var(--color--dark);
@@ -16,6 +17,10 @@
 
     background-color: var(--_theme---background);
     color: var(--_theme---text);
+
+    .u-text-style-h6 {
+      color: var(--_theme---text-faded);
+    }
 
     button {
       background-color: var(--_theme---button-primary--background);
@@ -36,6 +41,7 @@
     --_theme---border: var(--color--light);
     --_theme---background: var(--color--dark);
     --_theme---text: var(--color--light);
+    --_theme---text-faded: var(--color--light-faded);
 
     --_theme---button-primary--background: var(--color--light);
     --_theme---button-primary--border: var(--color--light);
@@ -46,6 +52,10 @@
 
     background-color: var(--_theme---background);
     color: var(--_theme---text);
+
+    .u-text-style-h6 {
+      color: var(--_theme---text-faded);
+    }
 
     button {
       background-color: var(--_theme---button-primary--background);
@@ -206,7 +216,9 @@
     --_text-style--font-weight: var(
       --_typography---font-weight--secondary-regular
     );
-    --_text-style--letter-spacing: var(--_typography---letter-spacing--neg-0-05em);
+    --_text-style--letter-spacing: var(
+      --_typography---letter-spacing--neg-0-05em
+    );
     --_text-style--margin-top: var(--_spacing---space--7);
     --_text-style--margin-bottom: var(--_spacing---space--4);
     --_text-style--trim-top: var(--_typography---font--secondary-trim-top);
@@ -264,30 +276,69 @@
 
 /** Text Line Height Trim **/
 /* PRIMARY FONT */
-:is([class*='u-text-style-'], h1, h2, h3, h4, main, large) {
+:is(
+  .u-text-style-h1,
+  .u-text-style-h2,
+  .u-text-style-h3,
+  .u-text-style-h4,
+  .u-text-style-main,
+  .u-text-style-large,
+  .u-text-style-display,
+  h1,
+  h2,
+  h3,
+  h4,
+
+) {
   display: flow-root;
 }
-:is([class*='u-text-style-'], h1, h2, h3, h4, main, large)::before {
+:is(
+  .u-text-style-h1,
+  .u-text-style-h2,
+  .u-text-style-h3,
+  .u-text-style-h4,
+  .u-text-style-main,
+  .u-text-style-large,
+  .u-text-style-display,
+  h1,
+  h2,
+  h3,
+  h4,
+
+)::before {
   content: '';
   display: table;
   margin-bottom: calc(-0.5lh + 0.36em);
 }
-:is([class*='u-text-style-'], h1, h2, h3, h4, main, large)::after {
+:is(
+  .u-text-style-h1,
+  .u-text-style-h2,
+  .u-text-style-h3,
+  .u-text-style-h4,
+  .u-text-style-main,
+  .u-text-style-large,
+  .u-text-style-display,
+  h1,
+  h2,
+  h3,
+  h4,
+
+)::after {
   content: '';
   display: table;
   margin-bottom: calc(-0.5lh + 0.36em);
 }
 
 /* SECONDARY FONT */
-:is([class*='u-text-style-'], h5, h6) {
+:is(.u-text-style-h5, .u-text-style-h6, h5, h6) {
   display: flow-root;
 }
-:is([class*='u-text-style-'], h5, h6)::before {
+:is(.u-text-style-h5, .u-text-style-h6, h5, h6)::before {
   content: '';
   display: table;
   margin-bottom: calc(-0.5lh + 0.35em);
 }
-:is([class*='u-text-style-'], h5, h6)::after {
+:is(.u-text-style-h5, .u-text-style-h6, h5, h6)::after {
   content: '';
   display: table;
   margin-bottom: calc(-0.5lh + 0.35em);
