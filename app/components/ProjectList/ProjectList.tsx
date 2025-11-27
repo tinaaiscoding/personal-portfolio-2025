@@ -3,7 +3,8 @@
 import { useGSAP } from '@gsap/react';
 
 import gsap from 'gsap';
-import { useRef } from 'react';
+
+import { useLenisScroll } from '@/app/utils/hooks/useLenisScroll';
 
 import { useProjectContext } from '../../utils/context/projects';
 import { projectListAnimation } from './animation';
@@ -13,20 +14,25 @@ gsap.registerPlugin(useGSAP);
 
 export default function ProjectList() {
   const projectList = useProjectContext();
-  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  const { wrapperRef } = useLenisScroll<HTMLDivElement>({
+    smoothWheel: true,
+    wheelMultiplier: 0.6,
+    lerp: 0.08,
+  });
 
   useGSAP(
     () => {
-      if (containerRef.current) {
-        projectListAnimation(containerRef.current);
+      if (wrapperRef.current) {
+        projectListAnimation(wrapperRef.current);
       }
     },
-    { scope: containerRef },
+    { scope: wrapperRef },
   );
 
   return (
     <div
-      ref={containerRef}
+      ref={wrapperRef}
       id='project-list'
       className='max-h-[350px] gap-10 overflow-y-auto'
     >
@@ -35,7 +41,7 @@ export default function ProjectList() {
           return (
             <p
               key={i}
-              className='project-list-item u-text-style-display py-5 opacity-30'
+              className='project-list-item u-text-style-display py-5 opacity-10'
             >
               {project.name}
             </p>
