@@ -120,6 +120,9 @@
     color: var(--_theme---text);
     font-family: var(--_typography---font-family--primary);
     font-weight: var(--_typography---font-weight--primary-medium);
+    transition:
+      background 0.4s,
+      color 0.4s;
   }
 
   ul,

@@ -1,6 +1,6 @@
 import { ProjectProvider } from '../utils/context/projects';
 import ProjectInfo from './ProjectInfo';
-import ProjectList from './ProjectList/ProjectList';
+import ProjectList from './projectList/ProjectList';
 
 const PROJECT_LIST = [
   {

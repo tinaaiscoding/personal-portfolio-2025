@@ -41,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className={`${fonts}`}>
-      <body className='u-theme-dark antialiased'>{children}</body>
+      <body className='u-theme-light antialiased'>{children}</body>
     </html>
   );
 }
