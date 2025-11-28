@@ -24,11 +24,7 @@ export default function ProjectList() {
   useGSAP(
     () => {
       if (wrapperRef.current) {
-        projectListAnimation(
-          wrapperRef.current,
-          projectList,
-          setActiveProject,
-        );
+        projectListAnimation(wrapperRef.current, projectList, setActiveProject);
       }
     },
     { scope: wrapperRef },
@@ -43,12 +39,13 @@ export default function ProjectList() {
       <div id='project-list-wrap' className=''>
         {projectList.map((project, i) => {
           return (
-            <p
+            <a
+              href={project.link}
               key={i}
               className='project-list-item u-text-style-display py-5 opacity-10'
             >
               {project.name}
-            </p>
+            </a>
           );
         })}
       </div>

@@ -15,7 +15,7 @@ export default function ProjectInfo() {
           src={activeProject.image}
           fill={true}
           alt=''
-          objectFit='cover'
+          className='object-cover'
         ></Image>
       </div>
     </div>
