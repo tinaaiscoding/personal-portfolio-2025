@@ -13,7 +13,7 @@ import './styles.css';
 gsap.registerPlugin(useGSAP);
 
 export default function ProjectList() {
-  const projectList = useProjectContext();
+  const { projectList, setActiveProject } = useProjectContext();
 
   const { wrapperRef } = useLenisScroll<HTMLDivElement>({
     smoothWheel: true,
@@ -24,7 +24,11 @@ export default function ProjectList() {
   useGSAP(
     () => {
       if (wrapperRef.current) {
-        projectListAnimation(wrapperRef.current);
+        projectListAnimation(
+          wrapperRef.current,
+          projectList,
+          setActiveProject,
+        );
       }
     },
     { scope: wrapperRef },

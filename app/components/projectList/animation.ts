@@ -1,10 +1,16 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Lenis from 'lenis';
+import { Dispatch, SetStateAction } from 'react';
+
+import type { Project, Projects } from '@/app/utils/context/projects';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function projectListAnimation(container: HTMLElement) {
+export function projectListAnimation(
+  container: HTMLElement,
+  projectList: Projects,
+  setActiveProject: Dispatch<SetStateAction<Project>>,
+) {
   const projectItems =
     document.querySelectorAll<HTMLElement>('.project-list-item');
 
@@ -33,7 +39,7 @@ export function projectListAnimation(container: HTMLElement) {
     );
   }
 
-  projectItems.forEach((item) => {
+  projectItems.forEach((item, i) => {
     gsap.timeline({
       scrollTrigger: {
         trigger: item,
@@ -44,10 +50,12 @@ export function projectListAnimation(container: HTMLElement) {
         onEnter: () => {
           projectItems.forEach((el) => el.classList.remove('active'));
           item.classList.add('active');
+          setActiveProject(projectList[i]);
         },
         onEnterBack: () => {
           projectItems.forEach((el) => el.classList.remove('active'));
           item.classList.add('active');
+          setActiveProject(projectList[i]);
         },
       },
     });

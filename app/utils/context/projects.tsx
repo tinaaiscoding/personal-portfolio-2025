@@ -1,25 +1,33 @@
-'use client'
+'use client';
 
-import React, { createContext, useContext } from 'react';
+import React, {
+  Dispatch,
+  SetStateAction,
+  createContext,
+  useContext,
+} from 'react';
 
-type Project = {
+export type Project = {
   name: string;
   description: string;
   image: string;
 };
-type Projects = Project[];
 
-export const ProjectContext = createContext<Projects | undefined>(undefined);
+export type Projects = Project[];
+
+type ProjectContext = {
+  projectList: Projects;
+  activeProject: Project;
+  setActiveProject: Dispatch<SetStateAction<Project>>;
+};
+
+const ProjectContext = createContext<ProjectContext | undefined>(undefined);
 
 export const ProjectProvider: React.FC<{
   children: React.ReactNode;
-  context: Projects;
-}> = ({ children, context }) => {
-  return (
-    <ProjectContext.Provider value={context}>
-      {children}
-    </ProjectContext.Provider>
-  );
+  value: ProjectContext;
+}> = ({ children, value }) => {
+  return <ProjectContext value={value}>{children}</ProjectContext>;
 };
 
 export function useProjectContext() {
