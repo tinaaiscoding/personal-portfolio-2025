@@ -24,22 +24,14 @@
 
   /* Font Sizes with Line Heights */
   --text-main: var(--_typography---font-size--text-main);
-  --text-main--line-height: var(--_typography---line-height--1);
 
   --text-h1: var(--_typography---font-size--h1);
-  --text-h1--line-height: var(--_typography---line-height--1);
   --text-h2: var(--_typography---font-size--h2);
-  --text-h2--line-height: var(--_typography---line-height--1);
   --text-h3: var(--_typography---font-size--h3);
-  --text-h3--line-height: var(--_typography---line-height--1);
   --text-h4: var(--_typography---font-size--h4);
-  --text-h4--line-height: var(--_typography---line-height--1);
   --text-h5: var(--_typography---font-size--h5);
-  --text-h5--line-height: var(--_typography---line-height--1);
   --text-h6: var(--_typography---font-size--h6);
-  --text-h6--line-height: var(--_typography---line-height--1);
   --text-display: var(--_typography---font-size--display);
-  --text-display--line-height: var(--_typography---line-height--1);
 
   /* Fluid Sizes Scale */
   --spacing-fl-0: var(--size--0rem);
@@ -135,5 +127,28 @@
   button {
     padding: 1rem 0.75rem;
     border-radius: var(--radius--main);
+  }
+}
+
+@media screen and (max-width: 56.5rem) {
+  #navbar-right {
+    display: none;
+  }
+
+  #navbar-left {
+    justify-content: space-between;
+    width: 100%;
+  }
+ 
+  #location-text {
+    display: none;
+  }
+
+  #projects {
+    grid-template-columns: 1fr;
+  }
+
+  #project-info {
+    display: none;
   }
 }

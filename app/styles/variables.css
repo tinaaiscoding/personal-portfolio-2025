@@ -60,6 +60,9 @@
   --_typography---letter-spacing--0-03em: 0.03em;
   --_typography---letter-spacing--0-05em: 0.05em;
 
+  /** Line Height **/
+  --_typography---line-height--1: 1;
+
   /** Font Sizes **/
 
   --_typography---font-size--text-main: clamp(
