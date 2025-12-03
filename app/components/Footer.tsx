@@ -26,7 +26,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className='flex h-[156px] w-full justify-center overflow-y-clip border-t border-current'>
+      <div className='flex w-full justify-center overflow-y-clip border-t border-current'>
         <TINAVO className='fill-current' />
       </div>
     </footer>
