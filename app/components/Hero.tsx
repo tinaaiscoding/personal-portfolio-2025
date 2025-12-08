@@ -4,8 +4,11 @@ import Projects from './Projects';
 
 export default function Hero() {
   return (
-    <div className='flex flex-col justify-between h-screen'>
-      <div id='hero' className='flex flex-col h-full justify-between m-(--site--margin)'>
+    <div className='flex h-screen flex-col justify-between'>
+      <div
+        id='hero'
+        className='mx-(--site--margin) mt-(--site--margin) mb-[1.5rem] flex h-full flex-col justify-between'
+      >
         <Navbar />
         <main>
           <Projects />

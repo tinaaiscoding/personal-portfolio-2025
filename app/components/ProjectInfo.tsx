@@ -10,7 +10,7 @@ export default function ProjectInfo() {
   return (
     <div id='project-info' className='flex flex-col gap-4'>
       <p className='u-text-style-large self-end'>{activeProject.description}</p>
-      <div className='rounded-DEFAULT relative h-full w-full overflow-hidden'>
+      <div className='rounded-DEFAULT relative h-full max-w-[654px] self-end overflow-hidden'>
         {activeProject.media.includes('videos') ? (
           <video
             src={activeProject.media}

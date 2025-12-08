@@ -30,7 +30,7 @@
 
   --site--max-width: min(var(--site--width), 100vw);
   --site--width: 90rem;
-  --site--margin: clamp(1.5rem, 0.928rem + 2.86vw, 3.5rem);
+  --site--margin: clamp(1.25rem, 0.75rem + 2.5vw, 3rem);
   --site--gutter: 1.25rem;
   --site--column-count: 12;
   --site--gutter-total: calc(

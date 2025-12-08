@@ -25,9 +25,10 @@ export default function Footer() {
           </a>
         </div>
       </div>
-
-      <div className='flex w-full justify-center overflow-y-clip border-t border-current'>
-        <TINAVO className='fill-current' />
+      <div id='footer-svg-wrapper' className='w-full h-full'>
+        <div className='flex w-full justify-center overflow-y-clip border-t border-current'>
+          <TINAVO className='fill-current' />
+        </div>
       </div>
     </footer>
   );
