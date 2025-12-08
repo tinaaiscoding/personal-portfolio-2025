@@ -11,63 +11,32 @@ const PROJECT_LIST = [
   {
     name: 'Portfolio Concept',
     description: 'Portfolio Concept Website',
-    image: '/images/dog4.jpg',
+    media: 'https://blocks.astratic.com/img/general-img-landscape.png',
     link: '#',
+  },
+    {
+    name: 'Photo List',
+    description: 'Smooth Scroll + Photo List Animation',
+    media: '/videos/photo-list-animation.mov',
+    link: 'https://github.com/tinaaiscoding/smooth-scroll',
   },
   {
     name: 'jetia',
     description: 'Digital Agency Concept Website',
-    image: '/images/dog3.jpg',
-    link: 'https://jetia.vercel.app/'
+    media: '/videos/jetia.mov',
+    link: 'https://jetia.vercel.app/',
   },
   {
     name: "Tina's Portfolio '23",
-    description: 'Previous Personal Portfolio',
-    image: '/images/dog2.jpg',
-    link: 'https://github.com/tinaaiscoding/tinas-portfolio'
+    description: 'Personal Portfolio (2023)',
+    media: '/videos/tinas-portfolio-23.mov',
+    link: 'https://github.com/tinaaiscoding/tinas-portfolio',
   },
-  {
-    name: 'Pokemon Battles',
-    description: 'Pokemon Project',
-    image: '/images/dog1.jpg',
-    link: 'https://github.com/tinaaiscoding/pokemon-game'
-  },
-  {
-    name: 'Placeholder 1',
-    description: 'Placeholder 1 Website',
-    image: '/images/dog4.jpg',
-    link: '#'
-  },
-  {
-    name: 'Placeholder 2',
-    description: 'Placeholder 2 Website',
-    image: '/images/dog2.jpg',
-    link: '#'
-  },
-  {
-    name: 'Placeholder 3',
-    description: 'Placeholder 3 Website',
-    image: '/images/dog3.jpg',
-    link: '#'
-  },
-  {
-    name: 'Placeholder 4',
-    description: 'Placeholder 4 Website',
-    image: '/images/dog4.jpg',
-    link: '#'
-  },
-  {
-    name: 'Placeholder 5',
-    description: 'Placeholder 5 Website',
-    image: '/images/dog1.jpg',
-    link: '#'
-  },
+
 ];
 
 export default function Projects() {
-  const [activeProject, setActiveProject] = useState<Project>(
-    PROJECT_LIST[0],
-  );
+  const [activeProject, setActiveProject] = useState<Project>(PROJECT_LIST[0]);
 
   return (
     <ProjectProvider

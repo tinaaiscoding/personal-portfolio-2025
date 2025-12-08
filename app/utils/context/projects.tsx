@@ -10,7 +10,7 @@ import React, {
 export type Project = {
   name: string;
   description: string;
-  image: string;
+  media: string;
   link: string;
 };
 
