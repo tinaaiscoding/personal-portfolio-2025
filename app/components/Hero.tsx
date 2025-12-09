@@ -4,10 +4,10 @@ import Projects from './Projects';
 
 export default function Hero() {
   return (
-    <div className='flex h-screen flex-col justify-between'>
+    <div className='flex h-svh flex-col justify-between'>
       <div
         id='hero'
-        className='mx-(--site--margin) mt-(--site--margin) mb-[1.5rem] flex h-full flex-col justify-between'
+        className='mx-(--site--margin) mt-(--site--margin) mb-fl-2 flex h-full flex-col justify-between'
       >
         <Navbar />
         <main>

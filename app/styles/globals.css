@@ -130,6 +130,7 @@
   }
 }
 
+/* Media Queries */
 @media screen and (max-width: 56.5rem) {
   #navbar-right {
     display: none;

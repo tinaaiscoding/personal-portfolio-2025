@@ -13,7 +13,7 @@ export default function Navbar() {
   }, [lightTheme]);
 
   return (
-    <nav className='flex justify-between gap-(--site--gutter)'>
+    <nav className='flex justify-between gap-(--site--gutter) mb-fl-2'>
       <div id='navbar-left' className='w-col-m-6 flex items-center gap-(--site--gutter)'>
         <div>
           <Logo

@@ -10,9 +10,8 @@
 } 
 
 #project-list-wrap {
-  height: calc((var(--project-item--height) * var(--project-list--count)));
   margin-top: calc(
-    var(--project-list-container--height) - var(--project-item--height)
+    var(--project-list--height) - var(--project-item--height)
   );
 }
 

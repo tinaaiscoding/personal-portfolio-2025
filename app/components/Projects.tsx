@@ -44,7 +44,7 @@ export default function Projects() {
     >
       <div
         id='projects'
-        className='grid max-h-[350px] grid-cols-2 gap-(--site--gutter)'
+        className='grid max-h-(--project-list--height) grid-cols-2 gap-(--site--gutter)'
       >
         <ProjectList />
         <ProjectInfo />

@@ -34,9 +34,9 @@ export default function ProjectList() {
     <div
       ref={wrapperRef}
       id='project-list'
-      className='max-h-[350px] gap-10 overflow-y-auto'
+      className='max-h-(--project-list--height) gap-10 overflow-y-auto'
     >
-      <div id='project-list-wrap' className=''>
+      <div id='project-list-wrap'>
         {projectList.map((project, i) => {
           return (
             <a

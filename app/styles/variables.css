@@ -70,7 +70,11 @@
     1.192rem + -0.21vw,
     1.15rem
   );
-  --_typography---font-size--text-large: clamp(1.14rem, 1.106rem + 0.17vw, 1.26rem);
+  --_typography---font-size--text-large: clamp(
+    1.14rem,
+    1.106rem + 0.17vw,
+    1.26rem
+  );
 
   --_typography---font-size--display: clamp(2.5rem, 1.928rem + 2.86vw, 4.5rem);
   --_typography---font-size--h1: clamp(3.18rem, 2.606rem + 2.87vw, 5.19rem);
@@ -211,4 +215,9 @@
   --radius--round: 100vw;
 
   --border-width--main: 0.0625rem;
+}
+
+#projects {
+  --project-list--height: 350px;
+  --project-video--height: 320px;
 }

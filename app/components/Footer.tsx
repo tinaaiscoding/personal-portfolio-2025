@@ -3,7 +3,7 @@ import TINAVO from '../../public/images/TINA_VO.svg';
 export default function Footer() {
   return (
     <footer className='flex flex-col items-center justify-end'>
-      <div className='links flex w-full items-end justify-between px-(--site--margin) pb-[3rem]'>
+      <div className='links flex w-full items-end justify-between px-(--site--margin) pb-fl-3'>
         <div id='email' className='flex flex-col gap-4'>
           <p className='u-text-style-h6'>Say hello!</p>
           <p className='u-text-style-main uppercase'>tina.webdev@gmail.com</p>

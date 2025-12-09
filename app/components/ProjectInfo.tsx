@@ -10,13 +10,13 @@ export default function ProjectInfo() {
   return (
     <div id='project-info' className='flex flex-col gap-4'>
       <p className='u-text-style-large self-end'>{activeProject.description}</p>
-      <div className='rounded-DEFAULT relative h-full max-w-[654px] self-end overflow-hidden'>
+      <div className='rounded-DEFAULT relative h-full w-col-m-6 self-end overflow-hidden'>
         {activeProject.media.includes('videos') ? (
           <video
             src={activeProject.media}
             autoPlay
             loop
-            className='h-[320px] w-full object-cover'
+            className='h-(--project-video--height) w-full object-cover'
           >
             Your browser does not support the video tag.
           </video>
