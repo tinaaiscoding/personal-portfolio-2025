@@ -5,25 +5,21 @@ import { useEffect, useState } from 'react';
 import Logo from '../../public/images/Logo_SVG.svg';
 
 export default function Navbar() {
-  const [lightTheme, setLightTheme] = useState<boolean>(true);
-
-  useEffect(() => {
-    document.body.classList.toggle('u-theme-light', lightTheme);
-    document.body.classList.toggle('u-theme-dark', !lightTheme);
-  }, [lightTheme]);
-
   return (
-    <nav className='flex justify-between gap-(--site--gutter) mb-fl-2'>
-      <div id='navbar-left' className='w-col-m-6 flex items-center gap-(--site--gutter)'>
+    <nav className='mb-fl-2 flex justify-between gap-(--site--gutter)'>
+      <div
+        id='navbar-left'
+        className='w-col-m-6 flex items-center gap-(--site--gutter)'
+      >
         <div>
-          <Logo
-            className='h-[52px] w-[66px] fill-current'
-            onClick={() => setLightTheme(!lightTheme)}
-          />
+          <Logo className='h-[52px] w-[66px] fill-current' />
         </div>
-        <p className='u-text-style-h5  uppercase'>Frontend / Web Dev</p>
+        <p className='u-text-style-h5 uppercase'>Frontend / Web Dev</p>
       </div>
-      <div id='navbar-right'className='w-col-m-6 flex items-center justify-between'>
+      <div
+        id='navbar-right'
+        className='w-col-m-6 flex items-center justify-between'
+      >
         <p id='location-text' className='u-text-style-h5 uppercase'>
           Melbourne, AU
         </p>
