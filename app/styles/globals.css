@@ -137,7 +137,8 @@
     display: none;
   }
 
-  #navbar-left {
+  #navbar-left,
+  #navbar-left-mask {
     justify-content: space-between;
     width: 100%;
   }

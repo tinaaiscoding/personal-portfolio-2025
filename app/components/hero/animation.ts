@@ -13,3 +13,24 @@ export function cursorAnimation(cursor: HTMLElement, x: number, y: number) {
   xTo(x);
   yTo(y);
 }
+
+export function maskAnimation(
+  maskedEl: HTMLElement,
+  maskXPosition: number,
+  maskYPosition: number,
+) {
+  const maskSize = 70
+
+  const xTo = gsap.quickTo(maskedEl, '--mask-x', {
+    duration: 0.2,
+    ease: 'back.out(4)',
+  });
+
+  const yTo = gsap.quickTo(maskedEl, '--mask-y', {
+    duration: 0.2,
+    ease: 'back.out(4)',
+  });
+
+  xTo(maskXPosition - maskSize / 2);
+  yTo(maskYPosition - maskSize  / 2);
+}

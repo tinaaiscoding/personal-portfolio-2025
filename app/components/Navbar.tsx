@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
 import Logo from '../../public/images/Logo_SVG.svg';
+import { useLogoContext } from '../utils/context/logo';
 
 export default function Navbar() {
+  const { setLogoHovered } = useLogoContext();
   return (
     <nav className='mb-fl-2 flex justify-between gap-(--site--gutter)'>
       <div
@@ -12,7 +12,12 @@ export default function Navbar() {
         className='w-col-m-6 flex items-center gap-(--site--gutter)'
       >
         <div>
-          <Logo className='h-[52px] w-[66px] fill-current' />
+          <Logo
+            id='logo'
+            className='h-[52px] w-[66px] fill-current'
+            onMouseEnter={() => setLogoHovered(true)}
+            onMouseLeave={() => setLogoHovered(false)}
+          />
         </div>
         <p className='u-text-style-h5 uppercase'>Frontend / Web Dev</p>
       </div>

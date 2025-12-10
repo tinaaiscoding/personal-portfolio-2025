@@ -1,0 +1,16 @@
+#navbar-mask {
+  --mask-x: 50px;
+  --mask-y: 50px;
+  --mask-size: 70px;
+
+  mask-image: url('/images/circle.svg');
+  mask-repeat: no-repeat;
+  mask-size: var(--mask-size);
+  mask-position: var(--mask-x) var(--mask-y);
+  z-index: 2;
+  transform-origin: center;
+}
+
+#logo-mask {
+  cursor: pointer;
+}
