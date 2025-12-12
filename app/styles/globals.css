@@ -134,11 +134,15 @@
 /* Media Queries */
 @media screen and (max-width: 56.5rem) {
   #cursor {
+    display: none !important;
+  }
+
+  #project-list-cursor {
     display: none;
   }
 
-  #narbar-mask {
-    display: none;
+  #navbar-mask {
+    display: none !important;
   }
 
   #navbar-right {

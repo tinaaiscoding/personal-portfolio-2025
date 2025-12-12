@@ -4,6 +4,7 @@ import { useGSAP } from '@gsap/react';
 
 import gsap from 'gsap';
 
+import { useProjectListHover } from '@/app/utils/context/projectListHover';
 import { useLenisScroll } from '@/app/utils/hooks/useLenisScroll';
 
 import { useProjectContext } from '../../utils/context/projects';
@@ -14,6 +15,7 @@ gsap.registerPlugin(useGSAP);
 
 export default function ProjectList() {
   const { projectList, setActiveProject } = useProjectContext();
+  const { setProjectListHovered } = useProjectListHover();
 
   const { wrapperRef } = useLenisScroll<HTMLDivElement>({
     smoothWheel: true,
@@ -35,6 +37,8 @@ export default function ProjectList() {
       ref={wrapperRef}
       id='project-list'
       className='max-h-(--project-list--height) gap-10 overflow-y-auto'
+      onMouseEnter={() => setProjectListHovered(true)}
+      onMouseLeave={() => setProjectListHovered(false)}
     >
       <div id='project-list-wrap'>
         {projectList.map((project, i) => {

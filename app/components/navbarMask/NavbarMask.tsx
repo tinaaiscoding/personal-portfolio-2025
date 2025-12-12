@@ -4,8 +4,7 @@ import { Ref, useEffect, useState } from 'react';
 
 import Logo from '../../../public/images/Logo_SVG.svg';
 import { useLogoContext } from '../../utils/context/logo';
-
-import './styles.css'
+import './styles.css';
 
 export default function NavbarMask({ ref }: { ref: Ref<HTMLDivElement> }) {
   const [lightTheme, setLightTheme] = useState<boolean>(true);
@@ -28,10 +27,13 @@ export default function NavbarMask({ ref }: { ref: Ref<HTMLDivElement> }) {
     <div
       ref={ref}
       id='navbar-mask'
-      className='u-theme-dark pb-20 absolute flex w-full flex-col justify-between px-(--site--margin) pt-(--site--margin) hidden'
+      className='u-theme-dark absolute flex hidden w-full flex-col justify-between px-(--site--margin) pt-(--site--margin) pb-20'
       style={{ display: logoHovered ? 'flex' : 'none' }}
     >
-      <div id='navbar-left-mask' className='w-col-m-6 flex items-center gap-(--site--gutter)'>
+      <div
+        id='navbar-left-mask'
+        className='w-col-m-6 flex items-center gap-(--site--gutter)'
+      >
         <div>
           <Logo
             id='logo-mask'

@@ -5,13 +5,13 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { useEffect, useRef, useState } from 'react';
 
-import { LogoProvider } from '@/app/utils/context/logo';
-import { useMousePosition } from '@/app/utils/hooks/useMousePosition';
-
+import { LogoProvider } from '../../utils/context/logo';
+import { ProjectListHoverProvider } from '../../utils/context/projectListHover';
+import { useMousePosition } from '../../utils/hooks/useMousePosition';
 import Footer from '../Footer';
 import Navbar from '../Navbar';
-import Projects from '../Projects';
 import NavbarMask from '../navbarMask/NavbarMask';
+import Projects from '../projects/Projects';
 import { cursorAnimation, maskAnimation } from './animation';
 import './styles.css';
 
@@ -19,6 +19,8 @@ gsap.registerPlugin(useGSAP);
 
 export default function Hero() {
   const [logoHovered, setLogoHovered] = useState<boolean>(false);
+  const [projectListHovered, setProjectListHovered] = useState<boolean>(false);
+
   const cursor = useRef<HTMLDivElement>(null);
   const maskedEl = useRef<HTMLDivElement>(null);
 
@@ -49,22 +51,30 @@ export default function Hero() {
 
   return (
     <LogoProvider value={{ logoHovered, setLogoHovered }}>
-      <div className='flex h-svh flex-col justify-between'>
-        <div ref={cursor} id='cursor'></div>
+      <ProjectListHoverProvider
+        value={{ projectListHovered, setProjectListHovered }}
+      >
+        <div className='flex h-svh flex-col justify-between'>
+          <div
+            ref={cursor}
+            id='cursor'
+            style={{ display: projectListHovered ? 'none' : 'block' }}
+          ></div>
 
-        <NavbarMask ref={maskedEl} />
+          <NavbarMask ref={maskedEl} />
 
-        <div
-          id='hero'
-          className='mb-fl-2 mx-(--site--margin) mt-(--site--margin) flex h-full flex-col justify-between'
-        >
-          <Navbar />
-          <main>
-            <Projects />
-          </main>
+          <div
+            id='hero'
+            className='mb-fl-2 mx-(--site--margin) mt-(--site--margin) flex h-full flex-col justify-between'
+          >
+            <Navbar />
+            <main>
+              <Projects />
+            </main>
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
+      </ProjectListHoverProvider>
     </LogoProvider>
   );
 }
