@@ -13,26 +13,29 @@ const PROJECT_LIST = [
     description: 'Portfolio Concept Website',
     media: 'https://blocks.astratic.com/img/general-img-landscape.png',
     link: '#',
+    poster: '',
   },
-    {
+  {
     name: 'Photo List',
     description: 'Smooth Scroll + Photo List Animation',
-    media: '/videos/photo-list-animation.mov',
+    media: '/videos/photo-list-animation.mp4',
     link: 'https://github.com/tinaaiscoding/smooth-scroll',
+    poster: '/images/photo-list-animation-poster.jpg',
   },
   {
     name: 'jetia',
     description: 'Digital Agency Concept Website',
-    media: '/videos/jetia.mov',
+    media: '/videos/jetia.mp4',
     link: 'https://jetia.vercel.app/',
+    poster: '/images/jetia-poster.jpg',
   },
   {
     name: "Tina's Portfolio '23",
     description: 'Personal Portfolio (2023)',
-    media: '/videos/tinas-portfolio-23.mov',
+    media: '/videos/tinas-portfolio-23.mp4',
     link: 'https://github.com/tinaaiscoding/tinas-portfolio',
+    poster: '/images/tinas-portfolio-23-poster.jpg',
   },
-
 ];
 
 export default function Projects() {

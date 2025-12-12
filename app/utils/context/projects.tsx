@@ -12,6 +12,7 @@ export type Project = {
   description: string;
   media: string;
   link: string;
+  poster: string;
 };
 
 export type Projects = Project[];
