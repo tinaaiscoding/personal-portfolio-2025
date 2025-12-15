@@ -20,25 +20,16 @@ export default function ProjectInfo() {
       <div className='rounded-DEFAULT w-col-m-6 relative h-full self-end overflow-hidden'>
         {!isMediaLoaded && <Loading />}
 
-        {activeProject.media.includes('videos') ? (
-          <video
-            src={activeProject.media}
-            autoPlay
-            loop
-            className='h-(--project-video--height) w-full object-cover'
-            onLoadedData={() => setIsMediaLoaded(true)}
-            poster={activeProject.poster}
-          >
-            Your browser does not support the video tag.
-          </video>
-        ) : (
-          <Image
-            src={activeProject.media}
-            fill={true}
-            alt=''
-            className='object-cover'
-          ></Image>
-        )}
+        <video
+          src={activeProject.media}
+          autoPlay
+          loop
+          className='h-(--project-video--height) w-full object-cover'
+          onLoadedData={() => setIsMediaLoaded(true)}
+          poster={activeProject.poster}
+        >
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   );

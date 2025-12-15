@@ -20,9 +20,9 @@ const PROJECT_LIST = [
   {
     name: 'Portfolio Concept',
     description: 'Portfolio Concept Website',
-    media: 'https://blocks.astratic.com/img/general-img-landscape.png',
-    link: '#',
-    poster: '',
+    media: '/videos/portfolio-concept.mp4',
+    link: 'https://github.com/tinaaiscoding/portfolio-concept-website',
+    poster: '/images/portfolio-concept-poster.jpg',
   },
   {
     name: 'Photo List',
