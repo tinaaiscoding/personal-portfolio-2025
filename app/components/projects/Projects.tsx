@@ -3,15 +3,16 @@
 import { useGSAP } from '@gsap/react';
 
 import gsap from 'gsap';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { useProjectListHover } from '../../utils/context/projectListHover';
 import { ProjectProvider } from '../../utils/context/projects';
 import type { Project, Projects } from '../../utils/context/projects';
 import { useMousePosition } from '../../utils/hooks/useMousePosition';
 import ProjectInfo from '../ProjectInfo';
-import { cursorAnimation } from '../hero/animation';
+import { animateCursorMove } from '../hero/animations';
 import ProjectList from '../projectList/ProjectList';
+import { animateScrollCursor } from './animations';
 import './styles.css';
 
 gsap.registerPlugin(useGSAP);
@@ -50,21 +51,25 @@ const PROJECT_LIST = [
 export default function Projects() {
   const [activeProject, setActiveProject] = useState<Project>(PROJECT_LIST[0]);
 
-  const projectListCursor = useRef<HTMLDivElement>(null);
+  const scrollCursorRef = useRef<HTMLDivElement>(null);
+  const scrollCursorTlRef = useRef<gsap.core.Timeline | null>(null);
 
   const { projectListHovered } = useProjectListHover();
   const { x, y } = useMousePosition();
 
+  useEffect(() => {
+    if (!scrollCursorRef.current) return;
+    scrollCursorTlRef.current = animateScrollCursor(scrollCursorRef.current);
+  }, []);
+
   useGSAP(
     () => {
-      if (!projectListCursor.current) return;
+      if (!scrollCursorTlRef.current) return;
 
       if (projectListHovered) {
-        // instantly places the cursor at the real mouse location
-        gsap.set(projectListCursor.current, {
-          x: x,
-          y: y,
-        });
+        scrollCursorTlRef.current.play();
+      } else {
+        scrollCursorTlRef.current.progress(1).reverse();
       }
     },
     { dependencies: [projectListHovered] },
@@ -72,9 +77,9 @@ export default function Projects() {
 
   useGSAP(
     () => {
-      if (!projectListCursor.current) return;
+      if (!scrollCursorRef.current) return;
 
-      cursorAnimation(projectListCursor.current, x, y);
+      animateCursorMove(scrollCursorRef.current, x, y);
     },
     { dependencies: [x, y] },
   );
@@ -87,15 +92,14 @@ export default function Projects() {
         id='projects'
         className='grid max-h-(--project-list--height) grid-cols-2 gap-(--site--gutter)'
       >
-        {projectListHovered && (
-          <div
-            id='project-list-cursor'
-            className='u-text-style-h6 uppercase'
-            ref={projectListCursor}
-          >
-            scroll
-          </div>
-        )}
+        <div
+          id='project-list-cursor'
+          className='u-text-style-h6 uppercase'
+          ref={scrollCursorRef}
+        >
+          scroll
+        </div>
+
         <ProjectList />
         <ProjectInfo />
       </div>

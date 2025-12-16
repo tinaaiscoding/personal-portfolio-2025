@@ -6,7 +6,7 @@ import type { Project, Projects } from '@/app/utils/context/projects';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function projectListAnimation(
+export function animateProjectListScroll(
   container: HTMLElement,
   projectList: Projects,
   setActiveProject: Dispatch<SetStateAction<Project>>,
@@ -37,7 +37,6 @@ export function projectListAnimation(
         start: 'top 75%',
         end: 'bottom 75%',
         scrub: true,
-        // markers: true,
         onEnter: () => {
           projectItems.forEach((el) => el.classList.remove('active'));
           item.classList.add('active');

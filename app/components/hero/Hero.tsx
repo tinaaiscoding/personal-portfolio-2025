@@ -12,7 +12,12 @@ import Footer from '../Footer';
 import Navbar from '../Navbar';
 import NavbarMask from '../navbarMask/NavbarMask';
 import Projects from '../projects/Projects';
-import { cursorAnimation, maskAnimation } from './animation';
+import {
+  animateCursor,
+  animateCursorMove,
+  animateMaskCursorMove,
+  animateMaskReveal,
+} from './animations';
 import './styles.css';
 
 gsap.registerPlugin(useGSAP);
@@ -21,32 +26,51 @@ export default function Hero() {
   const [logoHovered, setLogoHovered] = useState<boolean>(false);
   const [projectListHovered, setProjectListHovered] = useState<boolean>(false);
 
-  const cursor = useRef<HTMLDivElement>(null);
-  const maskedEl = useRef<HTMLDivElement>(null);
+  const cursorRef = useRef<HTMLDivElement>(null);
+  const cursorTlRef = useRef<gsap.core.Timeline | null>(null);
+  const maskedElRef = useRef<HTMLDivElement>(null);
 
   const { x, y } = useMousePosition();
 
   useEffect(() => {
-    if (logoHovered && maskedEl.current) {
-      gsap.from(maskedEl.current, {
-        '--mask-size': `20px`,
-        duration: 0.5,
-        ease: 'power2.out',
-      });
-    }
-  }, [logoHovered]);
+    if (!cursorRef.current) return;
+
+    cursorTlRef.current = animateCursor(cursorRef.current);
+  }, []);
 
   useGSAP(
     () => {
-      if (cursor.current) {
-        cursorAnimation(cursor.current, x, y);
-      }
+      if (!cursorTlRef.current) return;
 
-      if (maskedEl.current) {
-        maskAnimation(maskedEl.current, x, y);
+      if (projectListHovered) {
+        cursorTlRef.current.play();
+      } else {
+        cursorTlRef.current.progress(1).reverse();
       }
     },
-    { dependencies: [x, y, logoHovered] },
+    { dependencies: [projectListHovered] },
+  );
+
+  useGSAP(
+    () => {
+      if (!maskedElRef.current) return;
+
+      if (logoHovered) {
+        animateMaskReveal(maskedElRef.current);
+      }
+    },
+    { dependencies: [logoHovered] },
+  );
+
+  useGSAP(
+    () => {
+      if (!cursorRef.current || !maskedElRef.current) return;
+
+      animateCursorMove(cursorRef.current, x, y);
+
+      animateMaskCursorMove(maskedElRef.current, x, y);
+    },
+    { dependencies: [x, y] },
   );
 
   return (
@@ -55,13 +79,9 @@ export default function Hero() {
         value={{ projectListHovered, setProjectListHovered }}
       >
         <div className='flex h-svh flex-col justify-between'>
-          <div
-            ref={cursor}
-            id='cursor'
-            style={{ display: projectListHovered ? 'none' : 'block' }}
-          ></div>
+          <div ref={cursorRef} id='cursor'></div>
 
-          <NavbarMask ref={maskedEl} />
+          <NavbarMask ref={maskedElRef} />
 
           <div
             id='hero'

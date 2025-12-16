@@ -8,7 +8,7 @@ import { useProjectListHover } from '@/app/utils/context/projectListHover';
 import { useLenisScroll } from '@/app/utils/hooks/useLenisScroll';
 
 import { useProjectContext } from '../../utils/context/projects';
-import { projectListAnimation } from './animation';
+import { animateProjectListScroll } from './animations';
 import './styles.css';
 
 gsap.registerPlugin(useGSAP);
@@ -25,9 +25,13 @@ export default function ProjectList() {
 
   useGSAP(
     () => {
-      if (wrapperRef.current) {
-        projectListAnimation(wrapperRef.current, projectList, setActiveProject);
-      }
+      if (!wrapperRef.current) return;
+
+      animateProjectListScroll(
+        wrapperRef.current,
+        projectList,
+        setActiveProject,
+      );
     },
     { scope: wrapperRef },
   );
