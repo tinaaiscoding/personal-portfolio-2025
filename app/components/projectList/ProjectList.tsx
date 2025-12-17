@@ -3,6 +3,7 @@
 import { useGSAP } from '@gsap/react';
 
 import gsap from 'gsap';
+import { useEffect } from 'react';
 
 import { useProjectListHover } from '@/app/utils/context/projectListHover';
 import { useLenisScroll } from '@/app/utils/hooks/useLenisScroll';
@@ -23,6 +24,10 @@ export default function ProjectList() {
     lerp: 0.08,
   });
 
+  useEffect(() => {
+    gsap.set(wrapperRef.current, { visibility: 'visible' });
+  }, []);
+
   useGSAP(
     () => {
       if (!wrapperRef.current) return;
@@ -40,7 +45,7 @@ export default function ProjectList() {
     <div
       ref={wrapperRef}
       id='project-list'
-      className='max-h-(--project-list--height) gap-10 overflow-y-auto'
+      className='invisible max-h-(--project-list--height) gap-10 overflow-y-auto'
       onMouseEnter={() => setProjectListHovered(true)}
       onMouseLeave={() => setProjectListHovered(false)}
     >

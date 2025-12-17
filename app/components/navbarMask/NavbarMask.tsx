@@ -27,8 +27,7 @@ export default function NavbarMask({ ref }: { ref: Ref<HTMLDivElement> }) {
     <div
       ref={ref}
       id='navbar-mask'
-      className='u-theme-dark absolute flex hidden w-full flex-col justify-between px-(--site--margin) pt-(--site--margin) pb-20'
-      style={{ display: logoHovered ? 'flex' : 'none' }}
+      className='u-theme-dark invisible absolute flex w-full flex-col justify-between px-(--site--margin) pt-(--site--margin) pb-70'
     >
       <div
         id='navbar-left-mask'

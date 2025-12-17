@@ -1,12 +1,13 @@
 #navbar-mask {
-  --mask-x: 50px;
-  --mask-y: 50px;
+  --mask-x: 0px;
+  --mask-y: 0px;
   --mask-size: 70px;
 
   mask-image: url('/images/circle.svg');
   mask-repeat: no-repeat;
   mask-size: var(--mask-size);
-  mask-position: var(--mask-x) var(--mask-y);
+  mask-position: calc(var(--mask-x) - var(--mask-size) / 2)
+    calc(var(--mask-y) - var(--mask-size) / 2);
   z-index: 2;
   transform-origin: center;
 }

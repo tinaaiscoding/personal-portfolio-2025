@@ -13,7 +13,7 @@ import Navbar from '../Navbar';
 import NavbarMask from '../navbarMask/NavbarMask';
 import Projects from '../projects/Projects';
 import {
-  animateCursor,
+  animateCursorExit,
   animateCursorMove,
   animateMaskCursorMove,
   animateMaskReveal,
@@ -26,16 +26,20 @@ export default function Hero() {
   const [logoHovered, setLogoHovered] = useState<boolean>(false);
   const [projectListHovered, setProjectListHovered] = useState<boolean>(false);
 
-  const cursorRef = useRef<HTMLDivElement>(null);
+  const cursorRef = useRef<HTMLDivElement | null>(null);
   const cursorTlRef = useRef<gsap.core.Timeline | null>(null);
-  const maskedElRef = useRef<HTMLDivElement>(null);
+  const maskedElRef = useRef<HTMLDivElement | null>(null);
+  const maskedElTlRef = useRef<gsap.core.Timeline | null>(null);
 
   const { x, y } = useMousePosition();
 
   useEffect(() => {
-    if (!cursorRef.current) return;
+    if (!cursorRef.current || !maskedElRef.current) return;
 
-    cursorTlRef.current = animateCursor(cursorRef.current);
+    cursorTlRef.current = animateCursorExit(cursorRef.current);
+    maskedElTlRef.current = animateMaskReveal(maskedElRef.current);
+
+    gsap.set(maskedElRef.current, { visibility: 'visible' });
   }, []);
 
   useGSAP(
@@ -53,10 +57,12 @@ export default function Hero() {
 
   useGSAP(
     () => {
-      if (!maskedElRef.current) return;
+      if (!maskedElTlRef.current) return;
 
       if (logoHovered) {
-        animateMaskReveal(maskedElRef.current);
+        maskedElTlRef.current.play();
+      } else {
+        maskedElTlRef.current.progress(1).reverse();
       }
     },
     { dependencies: [logoHovered] },

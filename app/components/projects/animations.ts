@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 
-export function animateScrollCursor(scrollCursor: HTMLElement) {
+export function animateScrollCursorEntry(scrollCursor: HTMLElement) {
   const tl = gsap.timeline({ paused: true });
 
   tl.fromTo(

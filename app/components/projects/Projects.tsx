@@ -12,7 +12,7 @@ import { useMousePosition } from '../../utils/hooks/useMousePosition';
 import ProjectInfo from '../ProjectInfo';
 import { animateCursorMove } from '../hero/animations';
 import ProjectList from '../projectList/ProjectList';
-import { animateScrollCursor } from './animations';
+import { animateScrollCursorEntry } from './animations';
 import './styles.css';
 
 gsap.registerPlugin(useGSAP);
@@ -51,7 +51,7 @@ const PROJECT_LIST = [
 export default function Projects() {
   const [activeProject, setActiveProject] = useState<Project>(PROJECT_LIST[0]);
 
-  const scrollCursorRef = useRef<HTMLDivElement>(null);
+  const scrollCursorRef = useRef<HTMLDivElement | null>(null);
   const scrollCursorTlRef = useRef<gsap.core.Timeline | null>(null);
 
   const { projectListHovered } = useProjectListHover();
@@ -59,7 +59,10 @@ export default function Projects() {
 
   useEffect(() => {
     if (!scrollCursorRef.current) return;
-    scrollCursorTlRef.current = animateScrollCursor(scrollCursorRef.current);
+
+    scrollCursorTlRef.current = animateScrollCursorEntry(scrollCursorRef.current);
+
+    gsap.set(scrollCursorRef.current, { visibility: 'visible' });
   }, []);
 
   useGSAP(
@@ -94,7 +97,7 @@ export default function Projects() {
       >
         <div
           id='project-list-cursor'
-          className='u-text-style-h6 uppercase'
+          className='u-text-style-h6 invisible uppercase'
           ref={scrollCursorRef}
         >
           scroll

@@ -14,7 +14,7 @@ export function animateCursorMove(cursor: HTMLElement, x: number, y: number) {
   yTo(y);
 }
 
-export function animateCursor(cursor: HTMLElement) {
+export function animateCursorExit(cursor: HTMLElement) {
   const tl = gsap.timeline({ paused: true });
 
   tl.fromTo(
@@ -29,7 +29,6 @@ export function animateCursor(cursor: HTMLElement) {
 
   return tl;
 }
-
 
 export function animateMaskCursorMove(
   maskedEl: HTMLElement,
@@ -48,14 +47,19 @@ export function animateMaskCursorMove(
     ease: 'back.out(4)',
   });
 
-  xTo(maskXPosition - maskSize / 2);
-  yTo(maskYPosition - maskSize / 2);
+  xTo(maskXPosition);
+  yTo(maskYPosition);
 }
 
 export function animateMaskReveal(maskedEl: HTMLElement) {
-  gsap.from(maskedEl, {
-    '--mask-size': `20px`,
-    duration: 0.5,
+  const tl = gsap.timeline({ paused: true });
+
+  tl.from(maskedEl, {
+    display: 'hidden',
+    '--mask-size': `0px`,
+    duration: 0.3,
     ease: 'power2.out',
   });
+
+  return tl;
 }
