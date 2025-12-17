@@ -1,10 +1,9 @@
 'use client';
 
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-import { useProjectContext } from '../utils/context/projects';
-import Loading from './Loading';
+import { useProjectContext } from '../../utils/context/projects';
+import Loading from '../Loading';
 
 export default function ProjectInfo() {
   const { activeProject } = useProjectContext();
@@ -17,7 +16,10 @@ export default function ProjectInfo() {
   return (
     <div id='project-info' className='flex flex-col gap-4'>
       <p className='u-text-style-large self-end'>{activeProject.description}</p>
-      <div className='rounded-DEFAULT w-col-m-6 relative h-full self-end overflow-hidden'>
+      <div
+        id='project-media'
+        className='rounded-DEFAULT w-col-m-6 relative h-full self-end overflow-hidden'
+      >
         {!isMediaLoaded && <Loading />}
 
         <video

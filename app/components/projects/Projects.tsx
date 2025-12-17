@@ -9,7 +9,7 @@ import { useProjectListHover } from '../../utils/context/projectListHover';
 import { ProjectProvider } from '../../utils/context/projects';
 import type { Project, Projects } from '../../utils/context/projects';
 import { useMousePosition } from '../../utils/hooks/useMousePosition';
-import ProjectInfo from '../ProjectInfo';
+import ProjectInfo from '../projectInfo/ProjectInfo';
 import { animateCursorMove } from '../hero/animations';
 import ProjectList from '../projectList/ProjectList';
 import { animateScrollCursorEntry } from './animations';

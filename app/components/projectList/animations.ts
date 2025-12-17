@@ -13,6 +13,7 @@ export function animateProjectListScroll(
 ) {
   const projectItems =
     document.querySelectorAll<HTMLElement>('.project-list-item');
+  const projectMedia = document.querySelector('#project-media');
 
   if (!projectItems.length) return;
 
@@ -41,11 +42,21 @@ export function animateProjectListScroll(
           projectItems.forEach((el) => el.classList.remove('active'));
           item.classList.add('active');
           setActiveProject(projectList[i]);
+          gsap.fromTo(
+            projectMedia,
+            { y: 15, opacity: 0.2 },
+            { y: 0, opacity: 1, duration: 0.4, ease: 'power1.out' },
+          );
         },
         onEnterBack: () => {
           projectItems.forEach((el) => el.classList.remove('active'));
           item.classList.add('active');
           setActiveProject(projectList[i]);
+          gsap.fromTo(
+            projectMedia,
+            { y: -15, opacity: 0.2 },
+            { y: 0, opacity: 1, duration: 0.4, ease: 'power1.out' },
+          );
         },
       },
     });
