@@ -9,14 +9,13 @@ import { LogoProvider } from '../../utils/context/logo';
 import { ProjectListHoverProvider } from '../../utils/context/projectListHover';
 import { useMousePosition } from '../../utils/hooks/useMousePosition';
 import Footer from '../Footer';
-import Navbar from '../Navbar';
+import Navbar from '../navbar/Navbar';
 import NavbarMask from '../navbarMask/NavbarMask';
 import Projects from '../projects/Projects';
 import {
   animateCursorExit,
-  animateCursorMove,
-  animateMaskCursorMove,
   animateMaskReveal,
+  createCursorMove,
 } from './animations';
 import './styles.css';
 
@@ -25,19 +24,30 @@ gsap.registerPlugin(useGSAP);
 export default function Hero() {
   const [logoHovered, setLogoHovered] = useState<boolean>(false);
   const [projectListHovered, setProjectListHovered] = useState<boolean>(false);
+  const { x, y } = useMousePosition();
 
   const cursorRef = useRef<HTMLDivElement | null>(null);
   const cursorTlRef = useRef<gsap.core.Timeline | null>(null);
   const maskedElRef = useRef<HTMLDivElement | null>(null);
   const maskedElTlRef = useRef<gsap.core.Timeline | null>(null);
-
-  const { x, y } = useMousePosition();
+  const cursorMoveRef = useRef<{
+    move: (x: number, y: number) => void;
+  } | null>(null);
+  const maskedMoveRef = useRef<{
+    move: (x: number, y: number) => void;
+  } | null>(null);
 
   useEffect(() => {
     if (!cursorRef.current || !maskedElRef.current) return;
 
     cursorTlRef.current = animateCursorExit(cursorRef.current);
     maskedElTlRef.current = animateMaskReveal(maskedElRef.current);
+    cursorMoveRef.current = createCursorMove(cursorRef.current, 'x', 'y');
+    maskedMoveRef.current = createCursorMove(
+      maskedElRef.current,
+      '--mask-x',
+      '--mask-y',
+    );
 
     gsap.set(maskedElRef.current, { visibility: 'visible' });
   }, []);
@@ -60,6 +70,7 @@ export default function Hero() {
       if (!maskedElTlRef.current) return;
 
       if (logoHovered) {
+        gsap.set(maskedElRef.current, { display: 'flex' });
         maskedElTlRef.current.play();
       } else {
         maskedElTlRef.current.progress(1).reverse();
@@ -70,11 +81,11 @@ export default function Hero() {
 
   useGSAP(
     () => {
-      if (!cursorRef.current || !maskedElRef.current) return;
+      if (!cursorMoveRef.current || !maskedMoveRef.current) return;
 
-      animateCursorMove(cursorRef.current, x, y);
+      cursorMoveRef.current.move(x, y);
 
-      animateMaskCursorMove(maskedElRef.current, x, y);
+      maskedMoveRef.current.move(x, y);
     },
     { dependencies: [x, y] },
   );

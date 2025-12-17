@@ -29,11 +29,12 @@
       color: var(--_theme---button-primary--text);
     }
 
-    button:hover {
+    #button-mask {
       background-color: var(--_theme---button-primary--background-hover);
       border: var(--border-width--main) solid
         var(--_theme---button-primary--border-hover);
       color: var(--_theme---button-primary--text-hover);
+      cursor: pointer;
     }
   }
 
@@ -63,7 +64,7 @@
       color: var(--_theme---button-primary--text);
     }
 
-    button:hover {
+    #button-mask {
       background-color: var(--_theme---button-primary--background-hover);
       border: 1px solid var(--_theme---button-primary--border-hover);
       color: var(--_theme---button-primary--text-hover);

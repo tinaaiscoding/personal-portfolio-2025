@@ -8,7 +8,7 @@ import './styles.css';
 
 export default function NavbarMask({ ref }: { ref: Ref<HTMLDivElement> }) {
   const [lightTheme, setLightTheme] = useState<boolean>(true);
-  const { logoHovered, setLogoHovered } = useLogoContext();
+  const { setLogoHovered } = useLogoContext();
 
   useEffect(() => {
     const body = document.body;
@@ -27,7 +27,7 @@ export default function NavbarMask({ ref }: { ref: Ref<HTMLDivElement> }) {
     <div
       ref={ref}
       id='navbar-mask'
-      className='u-theme-dark invisible absolute flex w-full flex-col justify-between px-(--site--margin) pt-(--site--margin) pb-70'
+      className='u-theme-dark invisible absolute hidden w-full flex-col justify-between px-(--site--margin) pt-(--site--margin) pb-70'
     >
       <div
         id='navbar-left-mask'

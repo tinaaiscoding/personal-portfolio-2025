@@ -1,17 +1,22 @@
 import gsap from 'gsap';
 
-export function animateCursorMove(cursor: HTMLElement, x: number, y: number) {
-  const xTo = gsap.quickTo(cursor, 'x', {
-    duration: 0.2,
-    ease: 'back.out(4)',
-  });
-  const yTo = gsap.quickTo(cursor, 'y', {
+export function createCursorMove(maskedEl: HTMLElement, x: string, y: string) {  
+  const xTo = gsap.quickTo(maskedEl, x, {
     duration: 0.2,
     ease: 'back.out(4)',
   });
 
-  xTo(x);
-  yTo(y);
+  const yTo = gsap.quickTo(maskedEl, y, {
+    duration: 0.2,
+    ease: 'back.out(4)',
+  });
+
+  return {
+    move(x: number, y: number) {
+      xTo(x);
+      yTo(y);
+    },
+  };
 }
 
 export function animateCursorExit(cursor: HTMLElement) {
@@ -30,34 +35,17 @@ export function animateCursorExit(cursor: HTMLElement) {
   return tl;
 }
 
-export function animateMaskCursorMove(
-  maskedEl: HTMLElement,
-  maskXPosition: number,
-  maskYPosition: number,
-) {
-  const maskSize = 70;
-
-  const xTo = gsap.quickTo(maskedEl, '--mask-x', {
-    duration: 0.2,
-    ease: 'back.out(4)',
-  });
-
-  const yTo = gsap.quickTo(maskedEl, '--mask-y', {
-    duration: 0.2,
-    ease: 'back.out(4)',
-  });
-
-  xTo(maskXPosition);
-  yTo(maskYPosition);
-}
-
 export function animateMaskReveal(maskedEl: HTMLElement) {
-  const tl = gsap.timeline({ paused: true });
+  const tl = gsap.timeline({
+    paused: true,
+    onReverseComplete: () => {
+      gsap.set(maskedEl, { display: 'none' });
+    },
+  });
 
   tl.from(maskedEl, {
-    display: 'hidden',
     '--mask-size': `0px`,
-    duration: 0.3,
+    duration: 0.2,
     ease: 'power2.out',
   });
 

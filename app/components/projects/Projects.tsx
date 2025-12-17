@@ -9,8 +9,8 @@ import { useProjectListHover } from '../../utils/context/projectListHover';
 import { ProjectProvider } from '../../utils/context/projects';
 import type { Project, Projects } from '../../utils/context/projects';
 import { useMousePosition } from '../../utils/hooks/useMousePosition';
+import { createCursorMove } from '../hero/animations';
 import ProjectInfo from '../projectInfo/ProjectInfo';
-import { animateCursorMove } from '../hero/animations';
 import ProjectList from '../projectList/ProjectList';
 import { animateScrollCursorEntry } from './animations';
 import './styles.css';
@@ -53,6 +53,9 @@ export default function Projects() {
 
   const scrollCursorRef = useRef<HTMLDivElement | null>(null);
   const scrollCursorTlRef = useRef<gsap.core.Timeline | null>(null);
+  const cursorMoveRef = useRef<{
+    move: (x: number, y: number) => void;
+  } | null>(null);
 
   const { projectListHovered } = useProjectListHover();
   const { x, y } = useMousePosition();
@@ -60,7 +63,10 @@ export default function Projects() {
   useEffect(() => {
     if (!scrollCursorRef.current) return;
 
-    scrollCursorTlRef.current = animateScrollCursorEntry(scrollCursorRef.current);
+    scrollCursorTlRef.current = animateScrollCursorEntry(
+      scrollCursorRef.current,
+    );
+    cursorMoveRef.current = createCursorMove(scrollCursorRef.current, 'x', 'y');
 
     gsap.set(scrollCursorRef.current, { visibility: 'visible' });
   }, []);
@@ -80,11 +86,11 @@ export default function Projects() {
 
   useGSAP(
     () => {
-      if (!scrollCursorRef.current) return;
+      if (!cursorMoveRef.current) return;
 
-      animateCursorMove(scrollCursorRef.current, x, y);
+      cursorMoveRef.current.move(x, y);
     },
-    { dependencies: [x, y] },
+    { dependencies: [x, y, projectListHovered] },
   );
 
   return (

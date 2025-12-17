@@ -129,6 +129,20 @@
     border-radius: var(--radius--main);
     z-index: 2;
   }
+
+  #button-mask {
+    --mask-x: 0px;
+    --mask-y: 0px;
+    --mask-size: 385px;
+
+    mask-image: url('/images/circle.svg');
+    mask-repeat: no-repeat;
+    mask-size: var(--mask-size);
+    mask-position: calc(var(--mask-x) - var(--mask-size) / 2)
+      calc(var(--mask-y) - var(--mask-size) / 2);
+    z-index: 2;
+    transform-origin: center;
+  }
 }
 
 /* Media Queries */
