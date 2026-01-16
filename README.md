@@ -5,9 +5,9 @@ I rebuilt my portfolio to simplify it down to a single-page site that highlights
 ---
 
 ## Tech Stack
-- **Next.js** – React framework for routing, components, and rendering  
-- **TypeScript** – For type safety and improved developer experience  
-- **CSS / Tailwind** – Utility-first styling with dynamic and responsive layouts  
+- Next.js (React framework)  
+- TypeScript
+- CSS / Tailwind
 
 ---
 
