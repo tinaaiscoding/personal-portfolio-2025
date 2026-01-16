@@ -53,10 +53,10 @@ I rebuilt my portfolio to simplify it down to a single-page site that highlights
     This caused unexpected jumps. The final solution was simpler: remove the setScrollCursor function entirely and control visibility via JSX and inline style:
     ```tsx
     <div
-    id='project-list-cursor'
-    className='u-text-style-h6 uppercase'
-    ref={scrollCursorRef}
-    style={{ display: projectListHovered ? 'block' : 'none' }}
+      id='project-list-cursor'
+      className='u-text-style-h6 uppercase'
+      ref={scrollCursorRef}
+      style={{ display: projectListHovered ? 'block' : 'none' }}
     >
       scroll
     </div>
